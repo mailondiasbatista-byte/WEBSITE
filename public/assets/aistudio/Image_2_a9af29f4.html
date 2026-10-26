@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Alex - Web Developer Portfolio</title>
+<!-- Tailwind CSS CDN with forms and container-queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#08090E',
+              card: '#10131E',
+              border: '#1E2338',
+              purple: '#5B4EE4',
+              accent: '#7965F4',
+              highlight: '#8A76FD',
+              textMuted: '#94A3B8'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['Fira Code', 'Consolas', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&amp;family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Lucide Icons CDN -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<!-- Custom Styles for Special Glows and Details -->
+<style data-purpose="glow-effects">
+    .glow-circle {
+      background: radial-gradient(circle, #6C52EE 0%, #4634B0 65%, transparent 72%);
+    }
+    .hero-glow-soft {
+      background: radial-gradient(circle at 70% 30%, rgba(99, 79, 237, 0.18) 0%, transparent 60%);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-[#08090E] text-slate-200 font-sans selection:bg-[#5B4EE4] selection:text-white antialiased overflow-x-hidden min-h-screen">
+<!-- BEGIN: MainHeader -->
+<header class="w-full border-b border-[#171B2B]/60 sticky top-0 z-50 bg-[#08090E]/90 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<!-- Brand Logo -->
+<a class="flex items-center gap-2 text-xl font-bold tracking-tight text-white group" href="#"><span class="text-[#7262F6] font-mono font-semibold transition-transform group-hover:-translate-x-0.5">&lt;/&gt;</span>
+<span class="">Maelam.dev</span></a>
+<!-- Desktop Navigation Menu -->
+<nav class="hidden md:flex items-center gap-8 text-sm font-medium"><a class="text-white relative pb-1 after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#6050EA]" href="#home">Accueil</a>
+<a class="text-slate-400 hover:text-white transition-colors" href="#about">À Propos</a>
+<a class="text-slate-400 hover:text-white transition-colors" href="#skills">Compétences</a>
+<a class="text-slate-400 hover:text-white transition-colors" href="#projects">Projets</a>
+<a class="text-slate-400 hover:text-white transition-colors" href="#contact">Contact</a></nav>
+<!-- CTA Button -->
+<div class="flex items-center">
+<a class="bg-[#5645EE] hover:bg-[#4939E3] text-white px-5 py-2.5 rounded-full text-xs font-semibold tracking-wide flex items-center gap-1.5 shadow-lg shadow-[#5645EE]/30 transition-all hover:shadow-[#5645EE]/50 active:scale-95" href="#contact"><span class="">Me Contacter</span>
+<i class="w-3.5 h-3.5" data-lucide="arrow-up-right"></i></a>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<main>
+<!-- BEGIN: HeroSection -->
+<section class="relative pt-12 pb-24 md:py-24 overflow-hidden border-b border-[#141824]" id="home">
+<!-- Background Ambient Glow -->
+<div class="absolute top-1/4 right-1/4 w-96 h-96 bg-[#5B4EE4]/15 rounded-full blur-3xl pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+<!-- Left Content Column -->
+<div class="lg:col-span-7 flex flex-col items-start z-10">
+<!-- Role Badge -->
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#1B1936] border border-[#342D6B]/50 text-[#9C8EFF] text-[11px] font-semibold tracking-wider uppercase mb-6">TECHNICIEN INFORMATIQUE &amp; DÉVELOPPEUR</div>
+<!-- Headline -->
+<h1 class="text-4xl sm:text-5xl lg:text-[56px] font-extrabold text-white tracking-tight leading-[1.15] mb-5">Bonjour, je suis <span class="text-[#7262F6]">Maelam Dias</span><br/>Batista Correia.</h1>
+<!-- Subtitle / Intro -->
+<p class="text-slate-400 text-sm sm:text-base max-w-xl font-normal leading-relaxed mb-8">Technicien Informatique &amp; Spécialiste Relation Client (Polyglotte). Agent dynamique possédant une solide base technique en développement de logiciels et administration de systèmes.</p>
+<!-- Buttons Group -->
+<div class="flex flex-wrap items-center gap-4 mb-14"><a class="bg-[#5645EE] hover:bg-[#4837E2] text-white px-6 py-3 rounded-lg text-xs font-semibold flex items-center gap-2 shadow-lg shadow-[#5645EE]/25 transition-all" href="#projects">
+<span class="">Voir Mes Projets</span>
+<i class="w-4 h-4" data-lucide="arrow-up-right"></i>
+</a>
+<a class="border border-[#262B40] hover:border-slate-500 bg-[#0C0F1A]/80 hover:bg-[#121626] text-white px-6 py-3 rounded-lg text-xs font-semibold flex items-center gap-2 transition-all" href="mailto:mailondiasbatista@gmail.com">
+<span class="">Télécharger CV</span>
+<i class="w-4 h-4" data-lucide="download"></i>
+</a></div>
+<!-- Technologies Footer Row -->
+<div class="w-full pt-4">
+<p class="text-[11px] font-bold tracking-widest uppercase text-slate-500 mb-4">
+              Technologies I Work With
+            </p>
+<div class="flex items-center gap-3 flex-wrap"><div class="w-10 h-10 rounded-lg bg-[#E44D26]/10 border border-[#E44D26]/40 flex items-center justify-center p-2 font-bold text-[#E44D26] text-xs" title="Java (POO)">
+  Java
+</div>
+<div class="w-10 h-10 rounded-lg bg-[#F7DF1E]/10 border border-[#F7DF1E]/30 flex items-center justify-center p-2 font-bold text-[#F7DF1E] text-xs" title="JavaScript">
+  JS
+</div>
+<div class="w-10 h-10 rounded-lg bg-[#3178C6]/15 border border-[#3178C6]/40 flex items-center justify-center p-2 font-bold text-[#3178C6] text-xs" title="PHP">
+  PHP
+</div>
+<div class="w-10 h-10 rounded-lg bg-[#141827] border border-[#20273F] flex items-center justify-center p-2 hover:border-[#E44D26]/60 transition-colors" title="HTML5">
+<span class="text-[#E44D26] font-extrabold text-xs">5</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-[#141827] border border-[#20273F] flex items-center justify-center p-2 hover:border-[#264DE4]/60 transition-colors" title="CSS3">
+<span class="text-[#264DE4] font-extrabold text-xs">3</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-[#141827] border border-[#20273F] flex items-center justify-center p-2 text-[#68A063] font-bold text-xs" title="Linux Ubuntu">
+  Linux
+</div>
+<div class="w-10 h-10 rounded-lg bg-[#3178C6]/15 border border-[#3178C6]/40 flex items-center justify-center p-2 font-bold text-[#3178C6] text-xs" title="MySQL">
+  SQL
+</div></div>
+</div>
+</div>
+<!-- Right Visual / Portrait Column -->
+<div class="lg:col-span-5 relative flex justify-center items-center mt-6 lg:mt-0">
+<!-- Decorative Squiggle -->
+<div class="absolute -left-6 top-1/2 -translate-y-8 z-20 hidden md:block">
+<svg fill="none" height="60" stroke="#6050EA" stroke-linecap="round" stroke-width="2.5" viewbox="0 0 50 65" width="45">
+<path d="M5 25 C15 5, 30 10, 25 35 C20 55, 38 60, 45 40" stroke-dasharray="1 0"></path>
+</svg>
+</div>
+<!-- Dot Matrix Decoration -->
+<div class="absolute -top-6 right-6 grid grid-cols-5 gap-2 opacity-35 pointer-events-none">
+<span class="w-1 h-1 rounded-full bg-slate-400"></span>
+<span class="w-1 h-1 rounded-full bg-slate-400"></span>
+<span class="w-1 h-1 rounded-full bg-slate-400"></span>
+<span class="w-1 h-1 rounded-full bg-slate-400"></span>
+<span class="w-1 h-1 rounded-full bg-slate-400"></span>
+<span class="w-1 h-1 rounded-full bg-slate-400"></span>
+<span class="w-1 h-1 rounded-full bg-slate-400"></span>
+<span class="w-1 h-1 rounded-full bg-slate-400"></span>
+<span class="w-1 h-1 rounded-full bg-slate-400"></span>
+<span class="w-1 h-1 rounded-full bg-slate-400"></span>
+<span class="w-1 h-1 rounded-full bg-slate-400"></span>
+<span class="w-1 h-1 rounded-full bg-slate-400"></span>
+<span class="w-1 h-1 rounded-full bg-slate-400"></span>
+<span class="w-1 h-1 rounded-full bg-slate-400"></span>
+<span class="w-1 h-1 rounded-full bg-slate-400"></span>
+</div>
+<!-- Portrait Center Wrapper with Circular Backdrop -->
+<div class="relative w-[340px] sm:w-[410px] h-[410px] flex items-center justify-center">
+<!-- Violet Glowing Orb / Circle Backdrop -->
+<div class="absolute w-[290px] h-[290px] sm:w-[340px] sm:h-[340px] rounded-full glow-circle shadow-2xl shadow-[#5B4EE4]/50"></div>
+<!-- Male Developer Portrait with Glasses & Hoodie -->
+<img alt="Maelam Dias Batista Correia" class="relative z-10 w-[270px] sm:w-[320px] h-[370px] object-cover rounded-b-full drop-shadow-2xl brightness-95 contrast-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFjzCr06J8XkB9u9nxoThYQDGFL0dfr5uU0tUjLXsSo324m_37n-kvDOC3OXG70BBgTCCU6e7YwvmJjDOxWwT1eSvR66k6zB_d9UtnkVlXzeJjaxFnLOtdQ_rhLlEJPGMx5mLuztf2_zbGvnvPHmNSGh1zLafkUjSF_J8qqW39U6WCv3T7q7QU_FWJqYKF0QPB5ML4SZQExLDDuxY6hYMIHUGki_PjS5UMkVshYs_vKrXDK5dgIk4hzP0InluvZjlxvsA"/>
+<!-- Floating Code Card Overlay -->
+<div class="absolute -bottom-4 right-0 sm:-right-6 z-20 bg-[#0C0E18]/95 border border-[#21273F] rounded-xl p-4 shadow-2xl backdrop-blur-md w-60 sm:w-64 font-mono text-left">
+<div class="flex items-center justify-between pb-2.5 mb-2.5 border-b border-[#1E2338]">
+<div class="flex items-center gap-1.5 text-[10px] text-slate-400">
+<span class="text-[#7262F6]">&lt;/&gt;</span>
+<span class="">Code</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-emerald-500 shadow-sm shadow-emerald-500/50"></span>
+</div>
+</div>
+<div class="text-[11px] leading-relaxed text-slate-300"><span class="text-[#7262F6] font-semibold">const</span> <span class="text-blue-300">developer</span> = {<br/>
+  <span class="text-slate-400">name:</span> <span class="text-amber-300">"Maelam Dias"</span>,<br/>
+  <span class="text-slate-400">title:</span> <span class="text-amber-300">"Technicien &amp; Dev"</span>,<br/>
+  <span class="text-slate-400">skills:</span> [<span class="text-amber-300">"Java"</span>, <span class="text-amber-300">"PHP"</span>, <span class="text-amber-300">"JS"</span>, <span class="text-amber-300">"Linux"</span>],<br/>
+  <span class="text-slate-400">languages:</span> [<span class="text-amber-300">"PT (Natif)"</span>, <span class="text-amber-300">"FR"</span>, <span class="text-amber-300">"EN"</span>]<br/>
+};</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: AboutAndStatsSection -->
+<section class="py-20 md:py-24 border-b border-[#141824] relative" id="about">
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Left: About Text -->
+<div class="lg:col-span-6 flex flex-col items-start">
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#1B1936] border border-[#342D6B]/50 text-[#9C8EFF] text-[11px] font-semibold tracking-wider uppercase mb-5">
+            ABOUT ME
+          </div>
+<h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight mb-4">Passionné par le développement<br/>et les solutions informatiques</h2>
+<p class="text-slate-400 text-sm leading-relaxed mb-8 max-w-lg">Capable de résoudre des problèmes complexes, de m'adapter rapidement à de nouveaux environnements et d'assurer un service et une relation client de haute qualité en plusieurs langues (Portugais natif, Français courant, Anglais débutant).</p>
+<a class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-lg border border-[#272D43] bg-[#0E1220] hover:bg-[#151B2E] text-xs font-semibold text-slate-200 transition-colors" href="#contact"><span class="">En Savoir Plus</span>
+<i class="w-3.5 h-3.5 text-slate-400" data-lucide="user"></i></a>
+</div>
+<!-- Right: 2x2 Stats Grid -->
+<div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4"><div class="bg-[#0F121E] border border-[#1E2338] rounded-xl p-6 flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-[#5845EE]/15 border border-[#5845EE]/30 flex items-center justify-center shrink-0">
+<i class="w-5 h-5 text-[#7262F6]" data-lucide="calendar"></i>
+</div>
+<div>
+<div class="text-2xl font-extrabold text-white">3e Année</div>
+<div class="text-xs text-slate-400">DEUST MIP - FSTS Settat</div>
+</div>
+</div>
+<div class="bg-[#0F121E] border border-[#1E2338] rounded-xl p-6 flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-[#5845EE]/15 border border-[#5845EE]/30 flex items-center justify-center shrink-0">
+<i class="w-5 h-5 text-[#7262F6]" data-lucide="smile"></i>
+</div>
+<div>
+<div class="text-2xl font-extrabold text-white">Polyglotte</div>
+<div class="text-xs text-slate-400">Portugais, Français, Anglais</div>
+</div>
+</div>
+<div class="bg-[#0F121E] border border-[#1E2338] rounded-xl p-6 flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-[#5845EE]/15 border border-[#5845EE]/30 flex items-center justify-center shrink-0">
+<i class="w-5 h-5 text-[#7262F6]" data-lucide="code"></i>
+</div>
+<div>
+<div class="text-2xl font-extrabold text-white">Linux &amp; Web</div>
+<div class="text-xs text-slate-400">Ubuntu, Java, PHP &amp; MySQL</div>
+</div>
+</div>
+<div class="bg-[#0F121E] border border-[#1E2338] rounded-xl p-6 flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-[#5845EE]/15 border border-[#5845EE]/30 flex items-center justify-center shrink-0">
+<i class="w-5 h-5 text-[#7262F6]" data-lucide="trophy"></i>
+</div>
+<div>
+<div class="text-2xl font-extrabold text-white">100%</div>
+<div class="text-xs text-slate-400">Rigueur &amp; Engagement</div>
+</div>
+</div></div>
+</div>
+</section>
+<!-- END: AboutAndStatsSection -->
+<!-- BEGIN: SkillsSection -->
+<section class="py-20 md:py-24 border-b border-[#141824] bg-[#0A0C13]" id="skills">
+<div class="max-w-7xl mx-auto px-6">
+<!-- Section Header -->
+<div class="text-center max-w-xl mx-auto mb-16"><div class="inline-flex items-center px-3 py-1 rounded-md bg-[#1B1936] text-[#9C8EFF] text-[11px] font-semibold tracking-wider uppercase mb-3">
+  MES COMPÉTENCES
+</div>
+<h2 class="text-3xl font-extrabold text-white tracking-tight">Compétences Techniques</h2></div>
+<!-- 3-Column Skills Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-8"><div class="space-y-6">
+<div>
+<div class="flex items-center justify-between text-xs font-semibold mb-2">
+<span class="flex items-center gap-2.5 text-white">
+<span class="w-4 h-4 bg-[#E44D26] text-white flex items-center justify-center rounded-[3px] text-[10px] font-extrabold">J</span>
+        Java (POO)
+      </span>
+<span class="text-slate-400">90%</span>
+</div>
+<div class="w-full bg-[#181D2E] h-1.5 rounded-full overflow-hidden">
+<div class="bg-[#6452EE] h-full rounded-full" style="width: 90%"></div>
+</div>
+</div>
+<div>
+<div class="flex items-center justify-between text-xs font-semibold mb-2">
+<span class="flex items-center gap-2.5 text-white">
+<span class="w-4 h-4 bg-[#F7DF1E] text-black flex items-center justify-center rounded-[3px] text-[9px] font-extrabold">JS</span>
+        JavaScript &amp; Web (HTML/CSS)
+      </span>
+<span class="text-slate-400">88%</span>
+</div>
+<div class="w-full bg-[#181D2E] h-1.5 rounded-full overflow-hidden">
+<div class="bg-[#6452EE] h-full rounded-full" style="width: 88%"></div>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<div>
+<div class="flex items-center justify-between text-xs font-semibold mb-2">
+<span class="flex items-center gap-2.5 text-white">
+<span class="w-4 h-4 bg-[#3178C6] text-white flex items-center justify-center rounded-[3px] text-[9px] font-bold">PHP</span>
+        PHP &amp; Développement Web
+      </span>
+<span class="text-slate-400">85%</span>
+</div>
+<div class="w-full bg-[#181D2E] h-1.5 rounded-full overflow-hidden">
+<div class="bg-[#6452EE] h-full rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<div>
+<div class="flex items-center justify-between text-xs font-semibold mb-2">
+<span class="flex items-center gap-2.5 text-white">
+<span class="w-4 h-4 bg-[#3178C6] text-white flex items-center justify-center rounded-[3px] text-[9px] font-bold">DB</span>
+        Gestion de bases de données MySQL
+      </span>
+<span class="text-slate-400">85%</span>
+</div>
+<div class="w-full bg-[#181D2E] h-1.5 rounded-full overflow-hidden">
+<div class="bg-[#6452EE] h-full rounded-full" style="width: 85%"></div>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<div>
+<div class="flex items-center justify-between text-xs font-semibold mb-2">
+<span class="flex items-center gap-2.5 text-white">
+<span class="w-4 h-4 rounded-[3px] bg-[#68A063]/20 text-[#68A063] font-bold text-[9px] flex items-center justify-center">LX</span>
+        Administration Systèmes Linux (Ubuntu)
+      </span>
+<span class="text-slate-400">85%</span>
+</div>
+<div class="w-full bg-[#181D2E] h-1.5 rounded-full overflow-hidden">
+<div class="bg-[#6452EE] h-full rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<div>
+<div class="flex items-center justify-between text-xs font-semibold mb-2">
+<span class="flex items-center gap-2.5 text-white">
+<i class="w-4 h-4 text-[#F05032]" data-lucide="git-branch"></i>
+        Outils &amp; Environnements de dev
+      </span>
+<span class="text-slate-400">80%</span>
+</div>
+<div class="w-full bg-[#181D2E] h-1.5 rounded-full overflow-hidden">
+<div class="bg-[#6452EE] h-full rounded-full" style="width: 80%"></div>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<!-- END: SkillsSection -->
+<!-- BEGIN: FeaturedProjectsSection -->
+<section class="py-20 md:py-24 border-b border-[#141824] relative" id="projects">
+<div class="max-w-7xl mx-auto px-6">
+<!-- Section Header -->
+<div class="text-center max-w-xl mx-auto mb-16"><div class="inline-flex items-center px-3 py-1 rounded-md bg-[#1B1936] text-[#9C8EFF] text-[11px] font-semibold tracking-wider uppercase mb-3">
+  EXPÉRIENCE &amp; PROJETS
+</div>
+<h2 class="text-3xl font-extrabold text-white tracking-tight">Projets &amp; Expériences Réalisés</h2></div>
+<!-- 3 Projects Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+<!-- Project 01: E-Commerce -->
+<article class="bg-[#0C0F1A] border border-[#1A1F31] rounded-2xl overflow-hidden hover:border-[#384166] transition-all flex flex-col group">
+<div class="p-4 bg-[#111422] border-b border-[#191F33] relative">
+<span class="text-slate-500 font-mono text-xs">01</span>
+<!-- Project UI Screenshot Mockup -->
+<div class="mt-2 h-44 rounded-lg overflow-hidden bg-[#0A0D17] border border-[#1E253E] relative flex items-center justify-center p-2">
+<img alt="E-Commerce Platform Preview" class="w-full h-full object-cover rounded opacity-80 group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXMqK2U9Bd4lFjflSyoL-b_HI998R_JW50oVISAlCsb9FG4XSHfwnTvzsqxph3VGfMZXRVOVUwh5GD5o9NHsN-VDbsUOhdJNCG9DVGhj5lA8qa2wz4HiknejGRL4cV-aQU4Rjw42o7kJbBYBrdDPSqG62iwDtQAoSBOzat-6x_O8d23i49O8knAWX5ReU2fhUOXJR0dRcbMhS4MxUBs61k3ww326QN5ViA_jHH8JRUIYWt3wZcdaoQwA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#0C0F1A] via-transparent to-transparent"></div>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between"><div>
+<h3 class="text-base font-bold text-white mb-1.5 group-hover:text-[#7262F6] transition-colors">
+    Système de Gestion de Stock Automatisé
+  </h3>
+<p class="text-xs text-slate-400 leading-relaxed mb-6">
+    Projet de Fin d'Études / Stage - MKS Settat (2026). Développement d'un système complet de gestion de stock automatisé avec MySQL.
+  </p>
+</div>
+<div class="flex items-center justify-end pt-2 border-t border-[#161B2B]">
+<a class="text-[#7262F6] hover:text-[#8D7FFE] text-xs font-semibold flex items-center gap-1.5 transition-colors" href="#">
+<span class="">Détails du Projet</span>
+<i class="w-3.5 h-3.5" data-lucide="arrow-right"></i>
+</a>
+</div></div>
+</article>
+<!-- Project 02: Task Management App -->
+<article class="bg-[#0C0F1A] border border-[#1A1F31] rounded-2xl overflow-hidden hover:border-[#384166] transition-all flex flex-col group">
+<div class="p-4 bg-[#111422] border-b border-[#191F33] relative">
+<span class="text-slate-500 font-mono text-xs">02</span>
+<!-- Project UI Screenshot Mockup -->
+<div class="mt-2 h-44 rounded-lg overflow-hidden bg-[#0A0D17] border border-[#1E253E] relative flex items-center justify-center p-2">
+<img alt="Task Management App Preview" class="w-full h-full object-cover rounded opacity-80 group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB56_j2RNs1galf0wDi2qYsBsMvTP2uuv3Y7brmx_CPJY53l-_06g1Jai1mZblHcXDQNSe5_dU9kpBKEhnmanXnLRt9bxYqqvBuVorjMiYWKES7qXp0e-tIDoQsMqXL8z7QJHXFgJ2rjiOOmPt_RqHfw2Hgl2INrHap7qwQXv-OVBMnRlxHR26LKM0hcmnoMb_E6tGcN3_rn6Uwxu1084ekLCk6zpgKw9hkJJQkoc94g7TeO13qlBqLOw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#0C0F1A] via-transparent to-transparent"></div>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between"><div>
+<h3 class="text-base font-bold text-white mb-1.5 group-hover:text-[#7262F6] transition-colors">
+    Maintenance &amp; Administration Systèmes
+  </h3>
+<p class="text-xs text-slate-400 leading-relaxed mb-6">
+    Administration de serveurs Linux Ubuntu, maintenance technique et résolution d'incidents logiciels au quotidien.
+  </p>
+</div>
+<div class="flex items-center justify-end pt-2 border-t border-[#161B2B]">
+<a class="text-[#7262F6] hover:text-[#8D7FFE] text-xs font-semibold flex items-center gap-1.5 transition-colors" href="#">
+<span class="">Détails du Projet</span>
+<i class="w-3.5 h-3.5" data-lucide="arrow-right"></i>
+</a>
+</div></div>
+</article>
+<!-- Project 03: Crypto Dashboard -->
+<article class="bg-[#0C0F1A] border border-[#1A1F31] rounded-2xl overflow-hidden hover:border-[#384166] transition-all flex flex-col group">
+<div class="p-4 bg-[#111422] border-b border-[#191F33] relative">
+<span class="text-slate-500 font-mono text-xs">03</span>
+<!-- Project UI Screenshot Mockup -->
+<div class="mt-2 h-44 rounded-lg overflow-hidden bg-[#0A0D17] border border-[#1E253E] relative flex items-center justify-center p-2">
+<img alt="Crypto Dashboard Preview" class="w-full h-full object-cover rounded opacity-80 group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDo_T19dkkaMcQ64M9zA1nG_JVjVv9JtfvzsH1yzctw7ukm3DHmUJdQ4Siyq1S7jof45KtXCzFlzdZB8vsg3VBvyJ8S4WTGBSdxdXLUGWU9KO359I-mU4A93PC8DFP0VJtu_2WkvOjesZxwVZKeBZtbwWKu_oKAHh-zyNo4-RPw8so8DHebF5-01Rf-r7bTErmGm20LEkQDbBjSVI0H4yetIGeYsCKYOvpR2G6wPqbYKc6buCOuTE03sw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#0C0F1A] via-transparent to-transparent"></div>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between"><div>
+<h3 class="text-base font-bold text-white mb-1.5 group-hover:text-[#7262F6] transition-colors">
+    Gestion Relation Usagers &amp; Coordination
+  </h3>
+<p class="text-xs text-slate-400 leading-relaxed mb-6">
+    Engagement Associatif &amp; Pratique : gestion de la communication, relation avec les usagers et organisation d'activités en équipe.
+  </p>
+</div>
+<div class="flex items-center justify-end pt-2 border-t border-[#161B2B]">
+<a class="text-[#7262F6] hover:text-[#8D7FFE] text-xs font-semibold flex items-center gap-1.5 transition-colors" href="#">
+<span class="">Détails du Projet</span>
+<i class="w-3.5 h-3.5" data-lucide="arrow-right"></i>
+</a>
+</div></div>
+</article>
+</div>
+<!-- Carousel Indicators -->
+<div class="flex items-center justify-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#6552EE]"></span>
+<span class="w-2 h-2 rounded-full bg-[#1F253C]"></span>
+<span class="w-2 h-2 rounded-full bg-[#1F253C]"></span>
+</div>
+</div>
+</section>
+<!-- END: FeaturedProjectsSection -->
+<!-- BEGIN: ContactAndTestimonialSection -->
+<section class="py-20 md:py-24 border-b border-[#141824] bg-[#090B12]" id="contact">
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-10">
+<!-- Column 1: Let's Work Together -->
+<div class="lg:col-span-4 flex flex-col justify-between"><div>
+<div class="inline-flex items-center px-2.5 py-1 rounded bg-[#1B1936] text-[#9C8EFF] text-[10px] font-semibold tracking-wider uppercase mb-3">
+    COLLABORATION &amp; EMPLOI
+  </div>
+<h3 class="text-2xl sm:text-3xl font-bold text-white mb-3 tracking-tight leading-snug">
+    Un projet ou une opportunité ?
+  </h3>
+<p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-6">
+    Ouvert aux opportunités en développement logiciel, support informatique et relation client polyglotte. Échangeons dès aujourd'hui !
+  </p>
+</div>
+<div>
+<a class="inline-flex items-center gap-2 bg-[#5645EE] hover:bg-[#4837E2] text-white px-5 py-2.5 rounded-lg text-xs font-semibold shadow-lg shadow-[#5645EE]/30 transition-all" href="mailto:mailondiasbatista@gmail.com">
+<span class="">Prendre Contact</span>
+<i class="w-3.5 h-3.5" data-lucide="arrow-up-right"></i>
+</a>
+</div></div>
+<!-- Column 2: Testimonial Card -->
+<div class="lg:col-span-5 bg-[#0D101C] border border-[#1A2033] rounded-2xl p-6 sm:p-7 flex flex-col justify-between relative shadow-lg"><div>
+<div class="w-9 h-9 rounded-lg bg-[#5645EE]/15 text-[#7262F6] flex items-center justify-center mb-4">
+<i class="w-4 h-4 fill-current" data-lucide="quote"></i>
+</div>
+<p class="text-xs sm:text-sm text-slate-300 leading-relaxed italic mb-4">
+    "Esprit d'équipe, rigueur professionnelle, excellente communication et gestion du stress. Capable de s'adapter rapidement aux nouveaux environnements."
+  </p>
+<div class="text-xs text-[#9C8EFF] font-semibold space-y-1">
+<div class="">• Portugais — Langue maternelle</div>
+<div class="">• Français — Courant</div>
+<div class="">• Anglais — Débutant</div>
+</div>
+</div>
+<div class="flex items-center gap-3 pt-4 border-t border-[#171D2F] mt-4">
+<img alt="Maelam Dias" class="w-10 h-10 rounded-full object-cover border border-[#2B3352]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFjzCr06J8XkB9u9nxoThYQDGFL0dfr5uU0tUjLXsSo324m_37n-kvDOC3OXG70BBgTCCU6e7YwvmJjDOxWwT1eSvR66k6zB_d9UtnkVlXzeJjaxFnLOtdQ_rhLlEJPGMx5mLuztf2_zbGvnvPHmNSGh1zLafkUjSF_J8qqW39U6WCv3T7q7QU_FWJqYKF0QPB5ML4SZQExLDDuxY6hYMIHUGki_PjS5UMkVshYs_vKrXDK5dgIk4hzP0InluvZjlxvsA"/>
+<div>
+<div class="text-xs font-bold text-white">Maelam Dias Batista Correia</div>
+<div class="text-[11px] text-slate-400">Technicien Informatique &amp; Relation Client</div>
+</div>
+</div></div>
+<!-- Column 3: Futuristic 12,000 Hours Countdown Timer -->
+<div class="lg:col-span-3 flex flex-col justify-between">
+<div class="relative bg-[#0E1122]/90 border border-purple-500/30 rounded-2xl p-5 shadow-xl shadow-purple-950/20 backdrop-blur-md overflow-hidden flex flex-col justify-between h-full">
+<!-- Ambient corner glow inside card -->
+<div class="absolute -top-10 -right-10 w-28 h-28 bg-[#6050EA]/20 rounded-full blur-2xl pointer-events-none"></div>
+<!-- Header badge with pulse indicator -->
+<div>
+<div class="flex items-center justify-between gap-2 mb-3">
+<div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#1B1936] border border-[#342D6B]/60 text-[#9C8EFF] text-[10px] font-semibold tracking-wider uppercase">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500 shadow-sm shadow-emerald-400"></span>
+</span>
+          DISPONIBILITÉ / COUNTDOWN
+        </div>
+<span class="text-[10px] font-mono text-purple-400 font-medium">LIVE</span>
+</div>
+<div class="flex items-center justify-between mb-4">
+<div>
+<h4 class="text-xs font-bold text-white tracking-wide uppercase">Compte à Rebours</h4>
+<p class="text-[11px] text-slate-400 font-mono">12,000 Heures Dédiées</p>
+</div>
+<i class="w-4 h-4 text-[#7262F6]" data-lucide="timer"></i>
+</div>
+<!-- Digits Grid: 4 Glassmorphic boxes -->
+<div class="grid grid-cols-2 gap-2 mb-4 font-mono">
+<!-- Total Hours Box -->
+<div class="bg-[#13172B]/90 border border-[#232B4A] rounded-xl p-2.5 text-center relative overflow-hidden group hover:border-[#6050EA]/50 transition-colors">
+<div class="text-[9px] uppercase tracking-wider text-slate-400 mb-0.5">HEURES</div>
+<div class="text-xl font-extrabold text-white tracking-tight drop-shadow-[0_0_8px_rgba(114,98,246,0.5)]" id="cd-hours">11,999</div>
+<div class="text-[9px] text-[#7262F6] font-sans mt-0.5" id="cd-days-sub">~499j 23h</div>
+</div>
+<!-- Minutes Box -->
+<div class="bg-[#13172B]/90 border border-[#232B4A] rounded-xl p-2.5 text-center relative overflow-hidden group hover:border-[#6050EA]/50 transition-colors">
+<div class="text-[9px] uppercase tracking-wider text-slate-400 mb-0.5">MINUTES</div>
+<div class="text-xl font-extrabold text-white tracking-tight drop-shadow-[0_0_8px_rgba(114,98,246,0.5)]" id="cd-minutes">59</div>
+<div class="text-[9px] text-slate-400 font-sans mt-0.5">restantes</div>
+</div>
+<!-- Seconds Box -->
+<div class="bg-[#13172B]/90 border border-[#232B4A] rounded-xl p-2.5 text-center relative overflow-hidden group hover:border-[#6050EA]/50 transition-colors">
+<div class="text-[9px] uppercase tracking-wider text-slate-400 mb-0.5">SECONDES</div>
+<div class="text-xl font-extrabold text-[#9C8EFF] tracking-tight drop-shadow-[0_0_8px_rgba(156,142,255,0.7)]" id="cd-seconds">59</div>
+<div class="text-[9px] text-slate-400 font-sans mt-0.5">synchro sec</div>
+</div>
+<!-- Milliseconds / Deciseconds Box -->
+<div class="bg-[#13172B]/90 border border-[#232B4A] rounded-xl p-2.5 text-center relative overflow-hidden group hover:border-[#6050EA]/50 transition-colors">
+<div class="text-[9px] uppercase tracking-wider text-slate-400 mb-0.5">MILLISEC</div>
+<div class="text-xl font-extrabold text-cyan-400 tracking-tight drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]" id="cd-millis">99</div>
+<div class="text-[9px] text-slate-400 font-sans mt-0.5">temps réel</div>
+</div>
+</div>
+</div>
+<!-- Active Progress Bar & Status -->
+<div class="pt-3 border-t border-[#1C233C]">
+<div class="flex items-center justify-between text-[10px] text-slate-400 font-mono mb-1.5">
+<span class="flex items-center gap-1.5">
+<i class="w-3 h-3 text-[#7262F6]" data-lucide="zap"></i>
+          Cycle Actif
+        </span>
+<span class="text-[#9C8EFF] font-semibold" id="cd-percent">99.9%</span>
+</div>
+<div class="w-full bg-[#141829] h-1.5 rounded-full overflow-hidden border border-[#20273F]/70">
+<div class="bg-gradient-to-r from-[#5B4EE4] via-[#7965F4] to-[#22d3ee] h-full rounded-full transition-all duration-300" id="cd-progress-bar" style="width: 99.9%"></div>
+</div>
+<div class="mt-3 flex items-center justify-between text-[10px] text-slate-400">
+<span class="inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+          Prêt pour mission
+        </span>
+<a class="text-[#7262F6] hover:text-[#9C8EFF] font-medium flex items-center gap-0.5 transition-colors" href="#contact">
+          Réserver <i class="w-3 h-3" data-lucide="chevron-right"></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: ContactAndTestimonialSection -->
+</main>
+<!-- BEGIN: MainFooter -->
+<footer class="py-7 bg-[#06070B] text-slate-500 text-xs">
+<div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-3"><div class="">
+  © 2025 Maelam Dias Batista Correia. Tous droits réservés.
+</div>
+<div class="flex items-center gap-1">
+  Conçu avec <i class="w-3.5 h-3.5 text-red-500 fill-current inline mx-0.5" data-lucide="heart"></i> pour Maelam Dias
+</div></div>
+</footer>
+<!-- END: MainFooter -->
+<!-- Lucide Icon Initializer Script -->
+<script data-purpose="icon-initialization">
+    document.addEventListener("DOMContentLoaded", () => {
+      lucide.createIcons();
+    });
+  </script>
+<!-- Countdown Timer Real-Time Engine (12,000 Hours) -->
+<script data-purpose="countdown-timer">
+  (function() {
+    const TOTAL_HOURS = 12000;
+    const STORAGE_KEY = 'maelam_cd_start_timestamp_v12k';
+    
+    // Check or set persistent start time
+    let startTime = localStorage.getItem(STORAGE_KEY);
+    if (!startTime) {
+      startTime = Date.now();
+      localStorage.setItem(STORAGE_KEY, startTime.toString());
+    } else {
+      startTime = parseInt(startTime, 10);
+    }
+    
+    const totalMs = TOTAL_HOURS * 3600 * 1000;
+    const endTime = startTime + totalMs;
+
+    const elHours = document.getElementById('cd-hours');
+    const elDaysSub = document.getElementById('cd-days-sub');
+    const elMinutes = document.getElementById('cd-minutes');
+    const elSeconds = document.getElementById('cd-seconds');
+    const elMillis = document.getElementById('cd-millis');
+    const elPercent = document.getElementById('cd-percent');
+    const elProgressBar = document.getElementById('cd-progress-bar');
+
+    function updateTimer() {
+      const now = Date.now();
+      let diffMs = endTime - now;
+      if (diffMs <= 0) diffMs = 0;
+
+      const totalHoursLeft = Math.floor(diffMs / (1000 * 60 * 60));
+      const daysLeft = Math.floor(totalHoursLeft / 24);
+      const remHours = totalHoursLeft % 24;
+
+      const minutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diffMs % (1000 * 60)) / 1000);
+      const millis = Math.floor((diffMs % 1000) / 10);
+
+      if (elHours) elHours.textContent = totalHoursLeft.toLocaleString('en-US');
+      if (elDaysSub) elDaysSub.textContent = `~${daysLeft}j ${remHours}h`;
+      if (elMinutes) elMinutes.textContent = String(minutes).padStart(2, '0');
+      if (elSeconds) elSeconds.textContent = String(seconds).padStart(2, '0');
+      if (elMillis) elMillis.textContent = String(millis).padStart(2, '0');
+
+      if (elProgressBar && elPercent) {
+        const pct = ((diffMs / totalMs) * 100).toFixed(1);
+        elProgressBar.style.width = Math.max(0, Math.min(100, pct)) + '%';
+        elPercent.textContent = pct + '%';
+      }
+    }
+
+    // High frequency interval for fluid millisecond ticking
+    setInterval(updateTimer, 45);
+    updateTimer();
+  })();
+</script>
+</body></html>

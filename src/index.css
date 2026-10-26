@@ -1,0 +1,227 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+  
+  code, pre, .font-mono {
+    font-family: 'Fira Code', Consolas, Monaco, monospace;
+  }
+}
+
+/* Playwrite Typography (SIL Open Font License 1.1 - The Playwrite Project / TypeTogether) */
+.font-playwrite {
+  font-family: 'Playwrite FR Moderne', cursive, 'Brush Script MT', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.font-sans-clean {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.font-mono-code {
+  font-family: 'Fira Code', Consolas, Monaco, monospace;
+}
+
+/* Red Glows for White-Red & Dark-Red themes */
+.theme-white-red .glow-circle,
+.theme-dark-red .glow-circle {
+  background: radial-gradient(circle, #EF4444 0%, #B91C1C 65%, transparent 72%);
+  box-shadow: 0 25px 60px -15px rgba(220, 38, 38, 0.45);
+}
+
+.theme-violet-dark .glow-circle {
+  background: radial-gradient(circle, #6C52EE 0%, #4634B0 65%, transparent 72%);
+  box-shadow: 0 25px 60px -15px rgba(91, 78, 228, 0.45);
+}
+
+.theme-white-red .hero-glow-soft,
+.theme-dark-red .hero-glow-soft {
+  background: radial-gradient(circle at 70% 30%, rgba(239, 68, 68, 0.12) 0%, transparent 60%);
+}
+
+.theme-violet-dark .hero-glow-soft {
+  background: radial-gradient(circle at 70% 30%, rgba(99, 79, 237, 0.18) 0%, transparent 60%);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.theme-white-red ::-webkit-scrollbar-track {
+  background: #F8FAFC;
+}
+.theme-white-red ::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+.theme-white-red ::-webkit-scrollbar-thumb:hover {
+  background: #DC2626;
+}
+
+.theme-dark-red ::-webkit-scrollbar-track,
+.theme-violet-dark ::-webkit-scrollbar-track {
+  background: #08090E;
+}
+.theme-dark-red ::-webkit-scrollbar-thumb,
+.theme-violet-dark ::-webkit-scrollbar-thumb {
+  background: #1E2338;
+  border-radius: 4px;
+}
+.theme-dark-red ::-webkit-scrollbar-thumb:hover {
+  background: #DC2626;
+}
+.theme-violet-dark ::-webkit-scrollbar-thumb:hover {
+  background: #5B4EE4;
+}
+
+/* Smooth global scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Classic, Prestigious Animations (Apple / Linear / Stripe easing) */
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.4deg);
+  }
+}
+
+@keyframes breathe-subtle {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.88;
+    filter: blur(0px);
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+    filter: blur(2px);
+  }
+}
+
+@keyframes fade-slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-soft-ambient {
+  0%, 100% {
+    opacity: 0.12;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.22;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes shimmer-sheen {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.anim-float {
+  animation: float-gentle 6.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.anim-breathe {
+  animation: breathe-subtle 8s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.anim-ambient-glow {
+  animation: pulse-soft-ambient 10s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.anim-fade-up {
+  opacity: 0;
+  animation: fade-slide-up 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+/* Stagger delay helpers */
+.anim-delay-100 { animation-delay: 100ms; }
+.anim-delay-200 { animation-delay: 200ms; }
+.anim-delay-300 { animation-delay: 300ms; }
+.anim-delay-400 { animation-delay: 400ms; }
+.anim-delay-500 { animation-delay: 500ms; }
+.anim-delay-600 { animation-delay: 600ms; }
+
+/* Classic card hover physics */
+.card-hover-classic {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+  will-change: transform, box-shadow;
+}
+.card-hover-classic:hover {
+  transform: translateY(-5px);
+}
+
+/* Button smooth classic interaction */
+.btn-classic-hover {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+.btn-classic-hover:hover {
+  transform: translateY(-1.5px) scale(1.015);
+}
+.btn-classic-hover:active {
+  transform: translateY(0.5px) scale(0.985);
+}
+
+/* Luxury button light sweep (shimmer) */
+.btn-classic-hover::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 100%
+  );
+  transform: rotate(25deg);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.btn-classic-hover:hover::after {
+  opacity: 1;
+  animation: button-sheen 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes button-sheen {
+  0% {
+    left: -60%;
+  }
+  100% {
+    left: 140%;
+  }
+}
+
+
+
