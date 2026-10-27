@@ -60,7 +60,6 @@ export function HeroSection({
             <span className={`font-playwrite text-base sm:text-lg font-normal ${accentText}`}>
               Bonjour, je suis
             </span>
-            <span className={`h-px w-8 ${isRed ? 'bg-red-400/50' : 'bg-[#7262F6]/50'}`} />
           </div>
 
           {/* Headline */}
@@ -76,11 +75,6 @@ export function HeroSection({
             {PORTFOLIO_DATA.profile.headlineRest}
           </h1>
 
-          {/* Cursive Signature Stamp */}
-          <div className="font-playwrite text-xs sm:text-sm text-slate-500 dark:text-slate-400 -mt-2 mb-4 anim-fade-up anim-delay-150 flex items-center gap-2">
-            <span>~ Signature :</span>
-            <span className={accentText}>Maelam Dias Batista Correia</span>
-          </div>
 
           {/* Subtitle / Intro */}
           <p
@@ -186,10 +180,10 @@ export function HeroSection({
             {/* Glowing Orb / Circle Backdrop with organic gentle breathing animation */}
             <div className="absolute w-[290px] h-[290px] sm:w-[340px] sm:h-[340px] rounded-full glow-circle shadow-2xl anim-breathe" />
 
-            {/* Developer Portrait with Glasses & Hoodie */}
+            {/* Developer Portrait */}
             <img
               alt="Maelam Dias Batista Correia"
-              className="relative z-10 w-[270px] sm:w-[320px] h-[370px] object-cover rounded-b-full drop-shadow-2xl brightness-95 contrast-105 select-none transition-transform duration-700 hover:scale-[1.01]"
+              className="relative z-10 w-[270px] sm:w-[320px] h-[370px] object-cover rounded-2xl sm:rounded-3xl drop-shadow-2xl brightness-95 contrast-105 select-none transition-transform duration-700 hover:scale-[1.01]"
               src={PORTFOLIO_DATA.profile.avatarUrl}
             />
 
@@ -203,7 +197,6 @@ export function HeroSection({
             >
               <div className="flex items-center justify-between pb-2.5 mb-2.5 border-b border-slate-700 relative z-20">
                 <div className="flex items-center gap-1.5 text-[10px] text-slate-400">
-                  <span className={isRed ? 'text-red-400' : 'text-[#7262F6]'}>&lt;/&gt;</span>
                   <span className="font-semibold text-slate-300">Code Profile</span>
                 </div>
                 <div className="flex items-center gap-2">

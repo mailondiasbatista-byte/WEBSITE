@@ -37,9 +37,6 @@ export function AboutSection({ onLearnMore, onSelectStat }: AboutSectionProps) {
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         {/* Left: About Text */}
         <div className="lg:col-span-6 flex flex-col items-start">
-          <div className="font-playwrite text-sm text-red-600 mb-2">
-            « Rigueur technique &amp; écoute humaine »
-          </div>
 
           <h2
             className={`text-3xl sm:text-4xl leading-tight mb-4 ${

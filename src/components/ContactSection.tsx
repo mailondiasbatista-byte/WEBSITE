@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { ArrowUpRight, Quote, Timer, Zap, ChevronRight } from 'lucide-react';
+import { useEffect, useState, FormEvent, ChangeEvent } from 'react';
+import { Quote, Timer, Zap, ChevronRight, Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 import { useTheme } from '../context/ThemeContext';
 import { SpotlightCard } from './SpotlightCard';
@@ -9,9 +9,19 @@ interface ContactSectionProps {
   onOpenBooking: () => void;
 }
 
-export function ContactSection({ onOpenContact, onOpenBooking }: ContactSectionProps) {
+export function ContactSection({ onOpenBooking }: ContactSectionProps) {
   const { isLight, theme, accentBg, accentHoverBg } = useTheme();
   const isRed = theme === 'white-red' || theme === 'dark-red';
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const TOTAL_HOURS = 12000;
   const [timeLeft, setTimeLeft] = useState({
@@ -62,6 +72,28 @@ export function ContactSection({ onOpenContact, onOpenBooking }: ContactSectionP
     return () => clearInterval(interval);
   }, []);
 
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) return;
+
+    const recipient = 'mailondiasbatista@gmail.com';
+    const subjectText = formData.subject || 'Type de mission / Contact Portfolio';
+    const bodyText = `Bonjour Maelam,\n\nNom: ${formData.name}\nEmail de contact: ${formData.email}\nType de mission: ${subjectText}\n\nMessage:\n${formData.message}`;
+
+    const mailtoUrl = `mailto:${recipient}?subject=${encodeURIComponent(subjectText)}&body=${encodeURIComponent(bodyText)}`;
+
+    window.location.href = mailtoUrl;
+
+    setSubmitSuccess(true);
+    setSubmitError('');
+    setFormData({ name: '', email: '', subject: '', message: '' });
+  };
+
   return (
     <section
       className={`py-20 md:py-24 border-b transition-colors ${
@@ -70,11 +102,11 @@ export function ContactSection({ onOpenContact, onOpenBooking }: ContactSectionP
       id="contact"
     >
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-10">
-        {/* Column 1: Collaboration & Emploi */}
-        <div className="lg:col-span-4 flex flex-col justify-between">
+        {/* Column 1: Interactive Contact Form */}
+        <div className="lg:col-span-5 flex flex-col justify-between">
           <div>
             <h3
-              className={`text-2xl sm:text-3xl font-bold mb-3 tracking-tight leading-snug ${
+              className={`text-2xl sm:text-3xl font-bold mb-2 tracking-tight leading-snug ${
                 isLight ? 'text-slate-900' : 'text-white'
               }`}
             >
@@ -88,23 +120,142 @@ export function ContactSection({ onOpenContact, onOpenBooking }: ContactSectionP
               Ouvert aux opportunités en développement logiciel, support informatique et relation
               client polyglotte. Échangeons dès aujourd'hui !
             </p>
-          </div>
-          <div>
-            <button
-              onClick={onOpenContact}
-              className={`inline-flex items-center gap-2 text-white px-5 py-2.5 rounded-lg text-xs font-semibold shadow-lg btn-classic-hover cursor-pointer ${accentBg} ${accentHoverBg} ${
-                isRed ? 'shadow-red-600/30' : 'shadow-[#5645EE]/30'
-              }`}
-            >
-              <span>Prendre Contact</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </button>
+
+            <form onSubmit={handleSubmit} className="space-y-3.5">
+              {submitSuccess && (
+                <div className="p-3 bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs rounded-xl flex items-center gap-2.5 animate-in fade-in duration-300">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>Message envoyé avec succès ! Merci de votre contact.</span>
+                </div>
+              )}
+
+              {submitError && (
+                <div className="p-3 bg-red-500/15 border border-red-500/30 text-red-400 text-xs rounded-xl flex items-center gap-2.5 animate-in fade-in duration-300">
+                  <AlertCircle className="w-4 h-4 text-red-400 shrink-0" />
+                  <span>{submitError}</span>
+                </div>
+              )}
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label
+                    htmlFor="contact-name"
+                    className={`block text-[11px] font-semibold mb-1 ${
+                      isLight ? 'text-slate-700' : 'text-slate-300'
+                    }`}
+                  >
+                    Votre Nom *
+                  </label>
+                  <input
+                    id="contact-name"
+                    name="name"
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Ex: Dr. Dupont / MKS Tech"
+                    className={`w-full rounded-lg px-3.5 py-2 text-xs focus:outline-none transition-colors border ${
+                      isLight
+                        ? 'bg-slate-50 border-slate-300 text-slate-900 placeholder:text-slate-400 focus:border-red-500'
+                        : 'bg-[#0D101C] border-[#1D243B] text-white placeholder:text-slate-500 focus:border-[#7262F6]'
+                    }`}
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="contact-email"
+                    className={`block text-[11px] font-semibold mb-1 ${
+                      isLight ? 'text-slate-700' : 'text-slate-300'
+                    }`}
+                  >
+                    Adresse Email *
+                  </label>
+                  <input
+                    id="contact-email"
+                    name="email"
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="contact@exemple.com"
+                    className={`w-full rounded-lg px-3.5 py-2 text-xs focus:outline-none transition-colors border ${
+                      isLight
+                        ? 'bg-slate-50 border-slate-300 text-slate-900 placeholder:text-slate-400 focus:border-red-500'
+                        : 'bg-[#0D101C] border-[#1D243B] text-white placeholder:text-slate-500 focus:border-[#7262F6]'
+                    }`}
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label
+                  htmlFor="contact-subject"
+                  className={`block text-[11px] font-semibold mb-1 ${
+                    isLight ? 'text-slate-700' : 'text-slate-300'
+                  }`}
+                >
+                  Sujet *
+                </label>
+                <input
+                  id="contact-subject"
+                  name="subject"
+                  type="text"
+                  required
+                  value={formData.subject}
+                  onChange={handleChange}
+                  placeholder="Développement Web / Mission Support / Offre Stage"
+                  className={`w-full rounded-lg px-3.5 py-2 text-xs focus:outline-none transition-colors border ${
+                    isLight
+                      ? 'bg-slate-50 border-slate-300 text-slate-900 placeholder:text-slate-400 focus:border-red-500'
+                      : 'bg-[#0D101C] border-[#1D243B] text-white placeholder:text-slate-500 focus:border-[#7262F6]'
+                  }`}
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="contact-message"
+                  className={`block text-[11px] font-semibold mb-1 ${
+                    isLight ? 'text-slate-700' : 'text-slate-300'
+                  }`}
+                >
+                  Message *
+                </label>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  required
+                  rows={3}
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Décrivez votre besoin ou proposition..."
+                  className={`w-full rounded-lg p-3 text-xs focus:outline-none transition-colors resize-none border ${
+                    isLight
+                      ? 'bg-slate-50 border-slate-300 text-slate-900 placeholder:text-slate-400 focus:border-red-500'
+                      : 'bg-[#0D101C] border-[#1D243B] text-white placeholder:text-slate-500 focus:border-[#7262F6]'
+                  }`}
+                />
+              </div>
+
+              <div>
+                <button
+                  type="submit"
+                  className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 text-white px-6 py-2.5 rounded-lg text-xs font-semibold shadow-lg transition-all cursor-pointer ${accentBg} ${accentHoverBg} ${
+                    isRed ? 'shadow-red-600/30' : 'shadow-[#5645EE]/30'
+                  }`}
+                >
+                  <span>Envoyer la demande</span>
+                  <Send className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </form>
           </div>
         </div>
 
         {/* Column 2: Testimonial Card with Spotlight Sheen */}
         <SpotlightCard
-          className={`rounded-2xl p-6 sm:p-7 flex flex-col justify-between relative shadow-lg card-hover-classic border ${
+          className={`lg:col-span-4 rounded-2xl p-6 sm:p-7 flex flex-col justify-between relative shadow-lg card-hover-classic border ${
             isLight
               ? 'bg-slate-50 border-slate-200 shadow-slate-200/50 hover:border-red-200 hover:shadow-xl'
               : 'bg-[#0D101C] border-[#1A2033] hover:border-[#2C3554] hover:shadow-xl'

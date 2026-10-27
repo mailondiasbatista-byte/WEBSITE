@@ -77,7 +77,7 @@ function AppContent() {
   return (
     <div
       className={`min-h-screen font-sans antialiased flex flex-col justify-between transition-colors duration-300 ${
-        isLight ? 'bg-white text-slate-800' : 'bg-[#08090E] text-slate-200'
+        isLight ? 'bg-white text-slate-800' : 'bg-[#030407] text-slate-200'
       } ${isRed ? 'selection:bg-red-600 selection:text-white' : 'selection:bg-[#5B4EE4] selection:text-white'}`}
     >
 

@@ -1,5 +1,5 @@
 import { useState, FormEvent } from 'react';
-import { X, Send, Mail, MapPin, CheckCircle2, Copy, Check, Clock } from 'lucide-react';
+import { X, Send, Mail, CheckCircle2, Copy, Check, Clock, Loader2, AlertCircle } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 import { useTheme } from '../context/ThemeContext';
 
@@ -18,6 +18,8 @@ export function ContactModal({ isOpen, onClose, defaultMissionType }: ContactMod
     defaultMissionType || 'Développement Web & Logiciel'
   );
   const [message, setMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
 
@@ -27,8 +29,19 @@ export function ContactModal({ isOpen, onClose, defaultMissionType }: ContactMod
     e.preventDefault();
     if (!name || !email || !message) return;
 
-    // Simulate sending inquiry
-    setSubmitted(true);
+    const recipient = 'mailondiasbatista@gmail.com';
+    const subjectText = missionType || 'Type de mission / Contact Portfolio';
+    const bodyText = `Bonjour Maelam,\n\nNom: ${name}\nEmail de contact: ${email}\nType de mission: ${subjectText}\n\nMessage:\n${message}`;
+
+    const mailtoUrl = `mailto:${recipient}?subject=${encodeURIComponent(subjectText)}&body=${encodeURIComponent(bodyText)}`;
+
+    window.location.href = mailtoUrl;
+
+    // Reset inputs and close modal
+    setName('');
+    setEmail('');
+    setMessage('');
+    onClose();
   };
 
   const handleCopyEmail = () => {
@@ -172,6 +185,13 @@ export function ContactModal({ isOpen, onClose, defaultMissionType }: ContactMod
                   className="w-full bg-[#13172C] border border-[#222A47] rounded-lg p-3 text-xs text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-[#7262F6] transition-colors resize-none"
                 />
               </div>
+
+              {submitError && (
+                <div className="p-3 bg-red-500/15 border border-red-500/30 text-red-400 text-xs rounded-xl flex items-center gap-2.5">
+                  <AlertCircle className="w-4 h-4 text-red-400 shrink-0" />
+                  <span>{submitError}</span>
+                </div>
+              )}
 
               {/* Guaranteed response note */}
               <div className="flex items-center gap-2 text-[11px] text-slate-400 bg-[#101427] p-2.5 rounded-lg border border-[#1C233C]">
