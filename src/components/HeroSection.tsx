@@ -37,8 +37,8 @@ export function HeroSection({
 
   return (
     <section
-      className={`relative pt-12 pb-24 md:py-24 overflow-hidden border-b transition-colors ${
-        isLight ? 'border-slate-200 bg-white' : 'border-[#141824]'
+      className={`relative pt-12 pb-24 md:py-24 overflow-hidden transition-colors ${
+        isLight ? 'bg-white' : ''
       }`}
       id="home"
     >
@@ -52,7 +52,7 @@ export function HeroSection({
         }`}
       />
 
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10">
+      <div className="w-full px-6 sm:px-10 lg:px-14 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10">
         {/* Left Content Column */}
         <div className="lg:col-span-7 flex flex-col items-start z-10">
           {/* Handwritten greeting in Playwrite */}

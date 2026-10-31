@@ -96,12 +96,12 @@ export function ContactSection({ onOpenBooking }: ContactSectionProps) {
 
   return (
     <section
-      className={`py-20 md:py-24 border-b transition-colors ${
-        isLight ? 'bg-white border-slate-200' : 'border-[#141824] bg-[#090B12]'
+      className={`py-20 md:py-24 transition-colors ${
+        isLight ? 'bg-white' : 'bg-[#090B12]'
       }`}
       id="contact"
     >
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-10">
+      <div className="w-full px-6 sm:px-10 lg:px-14 grid grid-cols-1 lg:grid-cols-12 gap-10">
         {/* Column 1: Interactive Contact Form */}
         <div className="lg:col-span-5 flex flex-col justify-between">
           <div>

@@ -29,12 +29,12 @@ export function AboutSection({ onLearnMore, onSelectStat }: AboutSectionProps) {
 
   return (
     <section
-      className={`py-20 md:py-24 border-b relative transition-colors ${
-        isLight ? 'bg-slate-50 border-slate-200' : 'border-[#141824]'
+      className={`py-20 md:py-24 relative transition-colors ${
+        isLight ? 'bg-slate-50' : ''
       }`}
       id="about"
     >
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div className="w-full px-6 sm:px-10 lg:px-14 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         {/* Left: About Text */}
         <div className="lg:col-span-6 flex flex-col items-start">
 

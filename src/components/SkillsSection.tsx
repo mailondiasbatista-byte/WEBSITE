@@ -106,12 +106,12 @@ export function SkillsSection() {
 
   return (
     <section
-      className={`py-20 md:py-24 border-b transition-colors ${
-        isLight ? 'bg-white border-slate-200' : 'border-[#141824] bg-[#0A0C13]'
+      className={`py-20 md:py-24 transition-colors ${
+        isLight ? 'bg-white' : 'bg-[#0A0C13]'
       }`}
       id="skills"
     >
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="w-full px-6 sm:px-10 lg:px-14">
         {/* Section Header */}
         <div className="text-center max-w-xl mx-auto mb-16">
           <h2

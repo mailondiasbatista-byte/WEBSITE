@@ -12,13 +12,13 @@ export function Footer({ onOpenContact, onOpenResume }: FooterProps) {
 
   return (
     <footer
-      className={`py-7 text-xs border-t transition-colors ${
+      className={`py-7 text-xs transition-colors ${
         isLight
-          ? 'bg-slate-100 border-slate-200 text-slate-600'
-          : 'bg-[#06070B] border-[#121522] text-slate-500'
+          ? 'bg-slate-100 text-slate-600'
+          : 'bg-[#06070B] text-slate-500'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="w-full px-6 sm:px-10 lg:px-14 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div>
           © 2025 {PORTFOLIO_DATA.profile.name}. Tous droits réservés.
         </div>

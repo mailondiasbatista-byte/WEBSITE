@@ -30,7 +30,7 @@ export function ProjectsScreen({ onSelectProject }: ProjectsScreenProps) {
   });
 
   return (
-    <div className="py-12 md:py-16 max-w-7xl mx-auto px-6 animate-in fade-in duration-300">
+    <div className="py-12 md:py-16 w-full px-6 sm:px-10 lg:px-14 animate-in fade-in duration-300">
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto mb-12">
         <h1

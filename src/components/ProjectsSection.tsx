@@ -14,12 +14,12 @@ export function ProjectsSection({ onSelectProject }: ProjectsSectionProps) {
 
   return (
     <section
-      className={`py-20 md:py-24 border-b relative transition-colors ${
-        isLight ? 'bg-slate-50 border-slate-200' : 'border-[#141824]'
+      className={`py-20 md:py-24 relative transition-colors ${
+        isLight ? 'bg-slate-50' : ''
       }`}
       id="projects"
     >
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="w-full px-6 sm:px-10 lg:px-14">
         {/* Section Header */}
         <div className="text-center max-w-xl mx-auto mb-16">
           <h2

@@ -39,13 +39,13 @@ export function Header({
 
   return (
     <header
-      className={`w-full sticky top-0 z-50 backdrop-blur-xl transition-all border-b ${
+      className={`w-full sticky top-0 z-50 backdrop-blur-xl transition-all ${
         isLight
-          ? 'bg-white/95 border-slate-200 shadow-sm'
-          : 'bg-[#030407]/90 border-white/10 shadow-2xl shadow-black/80'
+          ? 'bg-white/95 shadow-sm'
+          : 'bg-[#030407]/90 shadow-2xl shadow-black/80'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div className="w-full px-6 sm:px-10 lg:px-14 h-20 flex items-center justify-between">
         {/* Brand Logo */}
         <button
           onClick={() => handleNavClick('home')}
@@ -89,10 +89,10 @@ export function Header({
             <button
               onClick={onOpenTypography}
               title="Personnaliser la typographie"
-              className={`hidden lg:flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-medium transition-all border cursor-pointer ${
+              className={`hidden lg:flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-medium transition-all cursor-pointer ${
                 isLight
-                  ? 'border-slate-300 bg-slate-50 hover:bg-slate-100 text-slate-700 hover:text-red-600'
-                  : 'border-white/10 bg-white/[0.03] hover:bg-white/[0.08] text-slate-300 hover:text-white hover:border-red-500/30'
+                  ? 'bg-slate-50 hover:bg-slate-100 text-slate-700 hover:text-red-600'
+                  : 'bg-white/[0.03] hover:bg-white/[0.08] text-slate-300 hover:text-white'
               }`}
             >
               <span className="font-playwrite text-sm text-red-500">Aa</span>

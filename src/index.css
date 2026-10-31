@@ -10,6 +10,10 @@
   code, pre, .font-mono {
     font-family: 'Fira Code', Consolas, Monaco, monospace;
   }
+
+  *, ::before, ::after {
+    border-color: transparent !important;
+  }
 }
 
 /* Playwrite Typography (SIL Open Font License 1.1 - The Playwrite Project / TypeTogether) */
